@@ -18,7 +18,7 @@ permissions:
 jobs:
   test:
     runs-on: "ubuntu-latest"
-    timeout-minutes: 20
+    timeout-minutes: 30
     name: Test
     strategy:
       matrix:
@@ -45,6 +45,10 @@ jobs:
 
       - name: Test package
         run: uds run test-package
+
+      - name: Get Cluster Info
+        if: failure()
+        uses: ./.github/actions/get-cluster-info
 
       - name: Cleanup
         if: always()
