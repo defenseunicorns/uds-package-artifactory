@@ -43,12 +43,12 @@ jobs:
       - name: Deploy test bundle
         run: uds run deploy-test-bundle
 
+      - name: Get Cluster Info
+        if: always()
+        uses: ./.github/actions/get-cluster-info
+
       - name: Test package
         run: uds run test-package
-
-      - name: Get Cluster Info
-        if: failure()
-        uses: ./.github/actions/get-cluster-info
 
       - name: Cleanup
         if: always()
