@@ -1,0 +1,18 @@
+kind: UDSBundle
+metadata:
+  name: artifactory-test
+  description: A UDS bundle for deploying artifactory and it's dependencies on a development cluster
+  # x-release-please-start-version
+  version: 1.17.0-uds.0
+  # x-release-please-end
+
+packages:
+  - name: artifactory-postgres
+    path: ../
+    ref: 12.6.6-0
+
+  - name: artifactory
+    path: ../
+    # x-release-please-start-version
+    ref: 1.17.0-uds.0
+    # x-release-please-end

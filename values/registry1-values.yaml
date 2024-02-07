@@ -1,0 +1,59 @@
+global:
+  imageRegistry: registry1.dso.mil
+  artifactoryHaEnabled: false
+  imagePullSecrets:
+    - private-registry
+  database:
+    initContainerSetupDBImage: registry1.dso.mil/ironbank/opensource/postgres/postgresql:13.10
+    initContainerSetupDBUser: 0
+    initDBCreation: false
+
+artifactory:
+  initContainerImage: registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.1.0
+  artifactory:
+    name: artifactory
+    image:
+      registry: registry1.dso.mil
+      repository: ironbank/jfrog/artifactory/artifactory
+    license:
+      secret: ###ZARF_VAR_LICENSE_SECRET_NAME###
+      dataKey: ###ZARF_VAR_LICENSE_SECRET_KEY###
+  router:
+    name: router
+    image:
+      registry: registry1.dso.mil
+      repository: ironbank/jfrog/jfrog-xray/router
+  database:
+    type: postgresql
+    driver: org.postgresql.Driver
+    secrets:
+      password:
+        name: artifactory-postgres
+        key: password
+      user:
+        name: artifactory-postgres
+        key: user
+      url:
+        name: artifactory-postgres
+        key: url
+  installerInfo: '{"productId":"ironbank_helm_artifactory-pro/10.14.4","features":[{"featureId":"Partner/ACC-013116"}]}'
+  nginx:
+    enabled: false
+postgresql:
+  enabled: false
+artifactory-ha:
+  enabled: false
+distribution:
+  enabled: false
+insight:
+  enabled: false
+pipelines:
+  enabled: false
+pdnServer:
+  enabled: false
+redis:
+  enabled: false
+rabbitmq:
+  enabled: false
+xray:
+  enabled: false

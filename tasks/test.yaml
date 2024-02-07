@@ -1,0 +1,18 @@
+tasks:
+  - name: health-check
+    actions:
+      - description: Artifactory StatefulSet Health Check
+        wait:
+          cluster:
+            kind: StatefulSet
+            name: artifactory
+            namespace: artifactory
+
+  - name: ingress
+    actions:
+      - description: Artifactory UI Health Check
+        wait:
+          network:
+            protocol: https
+            address: artifactory.uds.dev
+            code: 200

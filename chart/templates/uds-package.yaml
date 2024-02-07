@@ -1,0 +1,19 @@
+apiVersion: uds.dev/v1alpha1
+kind: Package
+metadata:
+  name: artifactory
+  namespace: {{ .Release.Namespace }}
+spec:
+  network:
+    expose:
+      - service: artifactory
+        podLabels:
+          app: artifactory
+        gateway: tenant
+        host: artifactory
+        port: 8082
+    allow:
+      - direction: Egress
+        podLabels:
+          app: artifactory
+        remoteGenerated: Anywhere

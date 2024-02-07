@@ -1,0 +1,3 @@
+variables:
+  artifactory:
+    artifactory_db_endpoint: "postgresql.artifactory-db.svc.cluster.local"

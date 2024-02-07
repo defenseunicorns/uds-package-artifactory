@@ -1,0 +1,53 @@
+global:
+  joinKeySecretName: artifactory-keys
+  masterKeySecretName: artifactory-keys
+initContainerImage: registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.3
+artifactory:
+  name: artifactory
+  image:
+    registry: registry1.dso.mil
+    repository: ironbank/jfrog/artifactory/artifactory
+    tag: 7.71.5
+  license:
+    secret: ###ZARF_VAR_LICENSE_SECRET_NAME###
+    dataKey: ###ZARF_VAR_LICENSE_SECRET_KEY###
+router:
+  name: router
+  image:
+    registry: registry1.dso.mil
+    repository: ironbank/jfrog/jfrog-xray/router
+    tag: 7.87.0
+database:
+  type: postgresql
+  driver: org.postgresql.Driver
+  secrets:
+    password:
+      name: artifactory-postgres
+      key: password
+    user:
+      name: artifactory-postgres
+      key: user
+    url:
+      name: artifactory-postgres
+      key: url
+installerInfo: '{"productId":"ironbank_helm_artifactory-pro/10.14.4","features":[{"featureId":"Partner/ACC-013116"}]}'
+nginx:
+  enabled: false
+postgresql:
+  enabled: false
+artifactory-ha:
+  enabled: false
+distribution:
+  enabled: false
+insight:
+  enabled: false
+pipelines:
+  enabled: false
+pdnServer:
+  enabled: false
+redis:
+  enabled: false
+rabbitmq:
+  enabled: false
+xray:
+  enabled: false
