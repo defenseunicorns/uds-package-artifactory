@@ -1,5 +1,9 @@
 global:
   imageRegistry: registry1.dso.mil
+  joinKey: null
+  masterKey: null
+  joinKeySecretName: artifactory-keys
+  masterKeySecretName: artifactory-keys
   artifactoryHaEnabled: false
   imagePullSecrets:
     - private-registry

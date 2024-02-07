@@ -11,6 +11,10 @@ packages:
     path: ../
     ref: 12.6.6-0
 
+  - name: artifactory-secrets
+    path: ../
+    ref: 107.63.9-uds.0
+
   - name: artifactory
     path: ../
     # x-release-please-start-version
