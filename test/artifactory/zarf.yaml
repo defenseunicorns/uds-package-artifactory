@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/zarf/main/zarf.schema.json
+kind: ZarfPackageConfig
+metadata:
+  name: artifactory-secrets
+  # x-release-please-start-version
+  version: "107.63.9-uds.0"
+  # x-release-please-end
+  architecture: amd64
+
+components:
+  - name: artifactory-keys
+    required: true
+    manifests:
+      - name: artifactory-keys
+        namespace: artifactory
+        files:
+          - join-master-key-secret.yaml
