@@ -82,21 +82,13 @@
       "datasourceTemplate": "github-tags"
     },
     {
-      "fileMatch": ["^zarf.yaml$"],
+      "fileMatch": [".*\\/?zarf\\.ya?ml$"],
       "matchStrings": [
-        "-\\s+['\"](?<depName>[^:]+):(?<currentValue>.*)['\"]"
+        "-\\s+['\"]{0,1}(?<depName>[^:\\s]+):(?<currentValue>\\S+)['\"]{0,1}\\n"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver-coerced{{/if}}",
       "datasourceTemplate": "docker",
       "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^(?<version>.*)${{/if}}"
-    },
-    {
-      "fileMatch": ["^zarf.yaml$"],
-      "matchStrings": [
-        "- (?<depName>.*):(?<currentValue>\\S*)$"
-      ],
-      "versioningTemplate": "docker",
-      "datasourceTemplate": "docker"
     },
     {
       "fileMatch": ["^Makefile$"],
