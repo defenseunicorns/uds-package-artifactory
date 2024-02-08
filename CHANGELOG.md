@@ -1,6 +1,6 @@
 # Changelog
 
-## [107.64.0-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.63.9-uds.0...v107.64.0-uds.0) (2024-02-08)
+## [107.63.9-uds.1](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.63.9-uds.0...v107.63.9-uds.1) (2024-02-08)
 
 
 ### Features
