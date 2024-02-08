@@ -8,8 +8,6 @@ global:
   imagePullSecrets:
     - private-registry
   database:
-    initContainerSetupDBImage: registry1.dso.mil/ironbank/opensource/postgres/postgresql:13.10
-    initContainerSetupDBUser: 0
     initDBCreation: false
 
 artifactory:

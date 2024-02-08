@@ -91,6 +91,14 @@
       "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^(?<version>.*)${{/if}}"
     },
     {
+      "fileMatch": [".*\/?zarf\\.ya?ml$"],
+      "matchStrings": [
+        "- (?<depName>.*):(?<currentValue>\\S*)$"
+      ],
+      "versioningTemplate": "docker",
+      "datasourceTemplate": "docker"
+    },
+    {
       "fileMatch": ["^Makefile$"],
       "matchStrings": [
         "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?( registryUrl=(?<registryUrl>.*?))?\\s.*?=\\s*['\"]?(?<currentValue>.*?)['\"]?\\s"
