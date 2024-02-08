@@ -110,6 +110,10 @@
       "matchPackagePatterns": ["big-bang/.*"],
       "matchDatasources": ["gitlab-tags"],
       "allowedVersions": "!/^v.*$/"
+    },
+    {
+      "matchPackagePatterns": [ "docker.io/bitnami/postgresql" ],
+      "allowedVersions": "15"
     }
   ]
 }
