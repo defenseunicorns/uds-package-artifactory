@@ -82,7 +82,7 @@
       "datasourceTemplate": "github-tags"
     },
     {
-      "fileMatch": [".*\/?zarf\\.ya?ml$"],
+      "fileMatch": ["^zarf.yaml$"],
       "matchStrings": [
         "-\\s+['\"](?<depName>[^:]+):(?<currentValue>.*)['\"]"
       ],
@@ -91,7 +91,7 @@
       "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^(?<version>.*)${{/if}}"
     },
     {
-      "fileMatch": [".*\/?zarf\\.ya?ml$"],
+      "fileMatch": ["^zarf.yaml$"],
       "matchStrings": [
         "- (?<depName>.*):(?<currentValue>\\S*)$"
       ],
