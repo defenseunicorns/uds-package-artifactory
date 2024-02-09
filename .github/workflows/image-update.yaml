@@ -2,8 +2,6 @@ name: Update Images
 
 on:
   pull_request:
-    branches: 
-      - renovate/all
 
 # Abort prior jobs in the same workflow / PR
 concurrency:
@@ -15,7 +13,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  test:
+  update:
+    if: startsWith(github.head_ref, 'renovate/')
     runs-on: "ubuntu-latest"
     timeout-minutes: 10
     name: Update Images
