@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           ref: ${{ github.head_ref }}
-          persist-credentials: false
+          token: ${{ secrets.PUSH_PAT }}
 
       - name: Install Zarf
         uses: defenseunicorns/setup-zarf@main
@@ -35,13 +35,12 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git config --global user.name "${{ github.actor }}"
-          git add .
-          git commit -m "chore: update images"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.PUSH_PAT }}
-          branch: ${{ github.head_ref }}
+          if [[ `git status --porcelain` ]]; then
+            git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+            git config --global user.name "${{ github.actor }}"
+            git add .
+            git commit -m "chore: update images"
+            git push
+          else
+            echo "No changes to commit"
+          fi
