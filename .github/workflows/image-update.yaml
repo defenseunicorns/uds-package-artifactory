@@ -1,0 +1,36 @@
+name: Update Images
+
+on:
+  pull_request:
+    branches: 
+      - renovate/*
+
+# Abort prior jobs in the same workflow / PR
+concurrency:
+  group: test-${{ github.ref }}-${{ inputs.package }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  test:
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 10
+    name: Update Images
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        
+      - name: Update Images
+        uses: ./.github/actions/update-images
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --global user.name "${{ github.actor }}"
+          git add .
+          git commit -m "chore: update images"
+          git push
