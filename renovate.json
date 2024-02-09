@@ -51,7 +51,7 @@
     {
       "fileMatch": [".*\\.ya?ml$"],
       "matchStrings": [
-        "# renovate: datasource=helm\n .*- name: (?<depName>.*?)\n *url: (?<registryUrl>.*?)\n *version: (?<currentValue>.*)\n"
+        "# renovate: datasource=helm\\n .*- name: (?<depName>.*?)\\n *url: (?<registryUrl>.*?)\\n *version: (?<currentValue>.*)\\n"
       ],
       "datasourceTemplate": "helm",
       "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^(?<version>.*)${{/if}}"
@@ -97,6 +97,13 @@
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver-coerced{{/if}}",
       "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^(?<version>.*)${{/if}}"
+    },
+    {
+      "fileMatch": [".*\\/?zarf\\.ya?ml$"],
+      "matchStrings": [
+        "# renovate: bb-chart\\n .*- name: .*?\\n *url: ['\"]{0,1}(?<registryUrl>https:\\/\\/.*?)\\/(?<depName>.*?)\\.git['\"]{0,1}\\n *version: ['\"]{0,1}(?<currentValue>.*?)['\"]{0,1}\\n"
+      ],
+      "datasourceTemplate": "gitlab-tags"
     }
   ],
   "packageRules": [
@@ -110,10 +117,6 @@
       "matchPackagePatterns": ["big-bang/.*"],
       "matchDatasources": ["gitlab-tags"],
       "allowedVersions": "!/^v.*$/"
-    },
-    {
-      "matchPackagePatterns": [ "docker.io/bitnami/postgresql" ],
-      "allowedVersions": "15"
     }
   ]
 }

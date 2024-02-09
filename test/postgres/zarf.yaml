@@ -17,10 +17,11 @@ components:
   - name: postgres
     required: true
     charts:
+      # renovate: datasource=helm
       - name: postgresql
+        url: https://charts.bitnami.com/bitnami
         version: 12.6.6
         namespace: artifactory-db
-        url: https://charts.bitnami.com/bitnami
         valuesFiles:
           - "values.yaml"
     images:
