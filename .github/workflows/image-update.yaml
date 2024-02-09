@@ -25,6 +25,9 @@ jobs:
         with:
           # renovate: datasource=github-tags depName=defenseunicorns/zarf versioning=semver
           version: v0.32.1
+
+      - name: Iron Bank Login
+        run: zarf tools registry login -u "${{secrets.IRON_BANK_ROBOT_USERNAME}}" -p "${{secrets.IRON_BANK_ROBOT_PASSWORD}}" registry1.dso.mil
         
       - name: Update Images
         uses: ./.github/actions/update-images
