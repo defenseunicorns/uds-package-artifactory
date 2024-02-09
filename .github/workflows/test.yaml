@@ -57,7 +57,7 @@ jobs:
         if: always()
         uses: ./.github/actions/get-cluster-info
         with:
-          artifact-suffix: ${{ matrix.flavor }}
+          artifact-suffix: ${{ matrix.flavor }}-${{ github.sha }}
 
       - name: Test package
         run: uds run test-package
