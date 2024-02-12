@@ -34,10 +34,15 @@ components:
         version: 0.1.0
         localPath: chart
     images:
-      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.77.3
-      - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.87.0
-      - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.3
-
+      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.63.9
+      - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.61.1
+      - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.1.0
+      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:sha256-74cdc8bdf63c14de287025bbaeaefbd8772ca2416f37f30360155cfdaed5f925.sig
+      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:sha256-74cdc8bdf63c14de287025bbaeaefbd8772ca2416f37f30360155cfdaed5f925.att
+      - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:sha256-0fd97fffdd52a9b06b657fa30139e23c2d44d5ac190b2880a6077e297d547f11.sig
+      - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:sha256-0fd97fffdd52a9b06b657fa30139e23c2d44d5ac190b2880a6077e297d547f11.att
+      - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:sha256-accb7c2fbb65c8347ce93789c270dcdd968894ef2d3d79eb89db004b7d8f83d5.sig
+      - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:sha256-accb7c2fbb65c8347ce93789c270dcdd968894ef2d3d79eb89db004b7d8f83d5.att
   - name: artifactory
     required: true
     description: "Deploy artifactory"
@@ -61,3 +66,9 @@ components:
       - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.77.3
       - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.87.0
       - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.3
+      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:sha256-4a8c3a1f6d2067d48398ae822b84953bae736ce247c936aaa73956b997adcc05.sig
+      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:sha256-4a8c3a1f6d2067d48398ae822b84953bae736ce247c936aaa73956b997adcc05.att
+      - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:sha256-667e33a4f284ee3731d63ad26d8c0a4f2bf8f0157397e10c45ba53996ea4f40b.sig
+      - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:sha256-667e33a4f284ee3731d63ad26d8c0a4f2bf8f0157397e10c45ba53996ea4f40b.att
+      - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:sha256-75808147d6621b22149e8ff84953aab2cc2fded148e867a2eddd8faf0f143123.sig
+      - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:sha256-75808147d6621b22149e8ff84953aab2cc2fded148e867a2eddd8faf0f143123.att

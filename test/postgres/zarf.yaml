@@ -6,7 +6,6 @@ metadata:
   version: "12.6.6-0"
   # x-release-please-end
   architecture: amd64
-
 components:
   - name: postgres-istio-exceptions
     required: true
@@ -25,7 +24,7 @@ components:
         valuesFiles:
           - "values.yaml"
     images:
-      - docker.io/bitnami/postgresql:16.2.0
+      - docker.io/bitnami/postgresql:16.2.0-debian-11-r1
     actions:
       onDeploy:
         after:
