@@ -34,9 +34,9 @@ components:
         version: 0.1.0
         localPath: chart
     images:
-      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.63.9
-      - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.61.1
-      - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.1.0
+      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.77.3
+      - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.87.0
+      - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.3
 
   - name: artifactory
     required: true
@@ -47,7 +47,7 @@ components:
       # renovate: datasource=helm
       - name: artifactory
         url: https://charts.jfrog.io
-        version: 107.71.9
+        version: 107.77.5
         namespace: artifactory
         repoName: artifactory
         releaseName: artifactory
@@ -58,6 +58,6 @@ components:
         version: 0.1.0
         localPath: chart
     images:
-      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.71.5
+      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.77.3
       - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.87.0
       - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.3
