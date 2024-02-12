@@ -6,7 +6,6 @@ metadata:
   version: "12.6.6-0"
   # x-release-please-end
   architecture: amd64
-
 components:
   - name: postgres-istio-exceptions
     required: true
@@ -20,12 +19,12 @@ components:
       # renovate: datasource=helm
       - name: postgresql
         url: https://charts.bitnami.com/bitnami
-        version: 12.6.6
+        version: 14.0.5
         namespace: artifactory-db
         valuesFiles:
           - "values.yaml"
     images:
-      - docker.io/bitnami/postgresql:15.3.0-debian-11-r24
+      - docker.io/bitnami/postgresql:16.2.0-debian-11-r1
     actions:
       onDeploy:
         after:
