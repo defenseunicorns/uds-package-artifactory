@@ -1,3 +1,4 @@
 variables:
-  artifactory:
-    artifactory_db_endpoint: "postgresql.artifactory-db.svc.cluster.local"
+  dev-postgres:
+    db_username: "artifactory"
+    db_name: "artifactorydb"

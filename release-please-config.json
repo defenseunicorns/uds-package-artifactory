@@ -16,8 +16,7 @@
       "extra-files": [
         "bundle/uds-bundle.yaml",
         "tasks/publish.yaml",
-        "zarf.yaml",
-        "src/artifactory/zarf.yaml"
+        "zarf.yaml"
       ]
     }
   },

@@ -23,3 +23,10 @@ components:
         namespace: artifactory
         files:
           - postgres-secret.yaml
+  - name: artifactory-keys
+    required: true
+    manifests:
+      - name: artifactory-keys
+        namespace: artifactory
+        files:
+          - join-master-key-secret.yaml

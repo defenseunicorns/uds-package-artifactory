@@ -19,5 +19,4 @@ tasks:
     description: Create the Dependency Zarf Package(s)
     actions:
       - cmd: |
-          zarf package create src/artifactory/ --confirm --no-progress --architecture=${UDS_ARCH} --skip-sbom
           zarf package create src/dev-secrets/ --confirm --no-progress --architecture=${UDS_ARCH} --skip-sbom

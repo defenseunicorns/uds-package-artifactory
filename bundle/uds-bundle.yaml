@@ -11,12 +11,6 @@ packages:
     repository: ghcr.io/defenseunicorns/packages/uds/dev-postgres
     ref: 0.0.2
 
-  - name: artifactory-secrets
-    path: ../
-    # x-release-please-start-version
-    ref: 107.63.9-uds.1
-    # x-release-please-end
-
   - name: dev-secrets
     path: ../
     ref: 0.1.0
