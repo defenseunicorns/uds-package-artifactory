@@ -1,7 +1,0 @@
-auth:
-  username: artifactory
-  database: artifactorydb
-
-commonLabels:
-  uds/user: "1001"
-  uds/group: "0"

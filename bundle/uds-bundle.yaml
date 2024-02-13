@@ -7,13 +7,13 @@ metadata:
   # x-release-please-end
 
 packages:
-  - name: artifactory-postgres
-    path: ../
-    ref: 12.6.6-0
+  - name: dev-postgres
+    repository: ghcr.io/defenseunicorns/packages/uds/dev-postgres
+    ref: 0.0.2
 
-  - name: artifactory-secrets
+  - name: dev-secrets
     path: ../
-    ref: 107.63.9-uds.0
+    ref: 0.1.0
 
   - name: artifactory
     path: ../
