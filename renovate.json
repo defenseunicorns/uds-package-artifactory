@@ -104,6 +104,13 @@
         "# renovate: bb-chart\\n .*- name: .*?\\n *url: ['\"]{0,1}(?<registryUrl>https:\\/\\/.*?)\\/(?<depName>.*?)\\.git['\"]{0,1}\\n *version: ['\"]{0,1}(?<currentValue>.*?)['\"]{0,1}\\n"
       ],
       "datasourceTemplate": "gitlab-tags"
+    },
+    {
+      "fileMatch": ["^\\.github/workflows/commitlint\\.yaml$"],
+      "matchStrings": [
+        "npm install --save-dev (?<depName>@?.*?)@(?<currentValue>.+)"
+      ],
+      "datasourceTemplate": "npm"
     }
   ],
   "packageRules": [
