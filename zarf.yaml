@@ -21,6 +21,10 @@ components:
     only:
       flavor: registry1
     charts:
+      - name: uds-artifactory-config
+        namespace: artifactory
+        version: 0.1.0
+        localPath: chart
       # renovate: bb-chart
       - name: artifactory
         url: https://repo1.dso.mil/big-bang/apps/third-party/jfrog-platform.git
@@ -29,10 +33,6 @@ components:
         namespace: artifactory
         valuesFiles:
           - values/registry1-values.yaml
-      - name: uds-artifactory-config
-        namespace: artifactory
-        version: 0.1.0
-        localPath: chart
     images:
       - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.63.9
       - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.61.1
@@ -44,19 +44,19 @@ components:
     only:
       flavor: upstream
     charts:
+      - name: uds-artifactory-config
+        namespace: artifactory
+        version: 0.1.0
+        localPath: chart
       # renovate: datasource=helm
       - name: artifactory
         url: https://charts.jfrog.io
-        version: 107.71.9
+        version: 107.77.7
         namespace: artifactory
         repoName: artifactory
         releaseName: artifactory
         valuesFiles:
           - values/upstream-values.yaml
-      - name: uds-artifactory-config
-        namespace: artifactory
-        version: 0.1.0
-        localPath: chart
     images:
       - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.71.5
       - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.87.0
