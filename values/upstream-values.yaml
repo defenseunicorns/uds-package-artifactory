@@ -1,6 +1,6 @@
 global:
-  joinKeySecretName: artifactory-keys
-  masterKeySecretName: artifactory-keys
+  imagePullSecrets:
+    - name: private-registry
 initContainerImage: registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.3
 artifactory:
   name: artifactory
