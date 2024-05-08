@@ -14,5 +14,5 @@ tasks:
         wait:
           network:
             protocol: https
-            address: artifactory.uds.dev
+            address: artifactory.uds.dev/ui/login/
             code: 200
