@@ -1,5 +1,6 @@
 includes:
   - cleanup: ./tasks/cleanup.yaml
+  - dependencies: ./tasks/dependencies.yaml
   - test: ./tasks/test.yaml
   - create: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.4.2/tasks/create.yaml
   - lint: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.4.2/tasks/lint.yaml
@@ -16,24 +17,26 @@ tasks:
       - task: deploy:test-bundle
 
   - name: create-artifactory-package
-    description: Create UDS Artifactory Package
+    description: Create UDS Artifactory Package, No dependencies included
     actions:
       - task: create:package
         with:
           options: "--skip-sbom --flavor registry1"
 
   - name: create-artifactory-test-bundle
-    description: Create a local UDS Artifactory bundle
+    description: Create a local UDS Artifactory bundlewith dependencies
     actions:
       - task: create-artifactory-package
+      - task: dependencies:create
       - task: create:test-bundle
 
   - name: create-artifactory-latest-release-bundle
-    description: Create UDS Artifactory bundle based on the latest release
+    description: Create UDS Artifactory bundle with dependencies based on the latest release
     actions:
       - task: pull:latest-package-release
         with:
           spoof_release: "true"
+      - task: dependencies:create
       - task: create:test-bundle
 
   - name: deploy-artifactory-test-bundle
