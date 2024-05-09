@@ -14,6 +14,7 @@ variables:
     default: ""
   - name: DOMAIN
     default: "uds.dev"
+
 components:
   - name: artifactory
     required: true
