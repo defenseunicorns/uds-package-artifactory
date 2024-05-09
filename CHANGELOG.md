@@ -1,5 +1,17 @@
 # Changelog
 
+## [107.77.12-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.77.7-uds.0...v107.77.12-uds.0) (2024-05-09)
+
+
+### Features
+
+* update chart, tasks, and GH actions ([#9](https://github.com/defenseunicorns/uds-package-artifactory/issues/9)) ([2b47c63](https://github.com/defenseunicorns/uds-package-artifactory/commit/2b47c6358ac0499ef21fbea66fc2592bf2de019f))
+
+
+### Miscellaneous
+
+* release 107.77.12-uds.0 ([b1f3f1d](https://github.com/defenseunicorns/uds-package-artifactory/commit/b1f3f1dc5ca15abf36f9e720b6185d62d370fa5b))
+
 ## [107.77.7-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.63.9-uds.1...v107.64.0-uds.1) (2024-03-18)
 
 
