@@ -3,6 +3,13 @@ kind: ZarfPackageConfig
 metadata:
   name: dev-secrets
   version: "0.1.0"
+variables:
+  - name: ARTIFACTORY_DB_NAME
+    default: "artifactorydb"
+  - name: ARTIFACTORY_DB_USERNAME
+    default: "artifactory.artifactory"
+  - name: ARTIFACTORY_DB_ENDPOINT
+    default: "pg-cluster.postgres.svc.cluster.local"
 
 components:
   - name: postgres-password
@@ -10,7 +17,7 @@ components:
     actions:
       onDeploy:
         before:
-          - cmd: kubectl get secret -n dev-postgres postgresql --template={{.data.password}} | base64 -d
+          - cmd: kubectl get secret -n artifactory artifactory.artifactory.pg-cluster.credentials.postgresql.acid.zalan.do --template={{.data.password}} | base64 -d
             mute: true
             setVariables:
               - name: POSTGRES_DB_PASSWORD
