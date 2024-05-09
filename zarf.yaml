@@ -14,6 +14,7 @@ variables:
     default: ""
   - name: DOMAIN
     default: "uds.dev"
+
 components:
   - name: artifactory
     required: true
@@ -25,39 +26,16 @@ components:
         namespace: artifactory
         version: 0.1.0
         localPath: chart
-      # renovate: bb-chart
-      - name: artifactory
-        url: https://repo1.dso.mil/big-bang/apps/third-party/jfrog-platform.git
-        version: "10.14.4"
-        gitPath: chart
-        namespace: artifactory
-        valuesFiles:
-          - values/registry1-values.yaml
-    images:
-      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.63.9
-      - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.61.1
-      - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.1.0
-
-  - name: artifactory
-    required: true
-    description: "Deploy artifactory"
-    only:
-      flavor: upstream
-    charts:
-      - name: uds-artifactory-config
-        namespace: artifactory
-        version: 0.1.0
-        localPath: chart
       # renovate: datasource=helm
       - name: artifactory
         url: https://charts.jfrog.io
-        version: 107.77.7
+        version: 107.77.12
         namespace: artifactory
         repoName: artifactory
         releaseName: artifactory
         valuesFiles:
-          - values/upstream-values.yaml
+          - values/registry1-values.yaml
     images:
-      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.71.5
+      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.77.5
       - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.87.0
-      - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.3
+      - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.4

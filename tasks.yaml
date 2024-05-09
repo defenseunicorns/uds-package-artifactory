@@ -1,36 +1,73 @@
 includes:
-  - teardown: ./tasks/cleanup.yaml
-  - create: ./tasks/create.yaml
-  - deploy: ./tasks/deploy.yaml
-  - setup: https://raw.githubusercontent.com/defenseunicorns/uds-common-tasks/main/tasks/setup.yaml
+  - cleanup: ./tasks/cleanup.yaml
+  - dependencies: ./tasks/dependencies.yaml
   - test: ./tasks/test.yaml
+  - create: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.4.2/tasks/create.yaml
+  - lint: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.4.2/tasks/lint.yaml
+  - pull: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.4.2/tasks/pull.yaml
+  - deploy: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.4.2/tasks/deploy.yaml
+  - setup: https://raw.githubusercontent.com/defenseunicorns/uds-common/v0.4.2/tasks/setup.yaml
 
 tasks:
-  - name: setup-cluster
+  - name: default
+    description: Create K3D Cluster with UDS-Core + Artifactory
     actions:
+      - task: create-artifactory-test-bundle
       - task: setup:k3d-test-cluster
+      - task: deploy:test-bundle
 
-  - name: create-package
+  - name: create-artifactory-package
+    description: Create UDS Artifactory Package, No dependencies included
     actions:
-      - task: create:artifactory-package
+      - task: create:package
+        with:
+          options: "--skip-sbom --flavor registry1"
 
-  - name: create-test-bundle
+  - name: create-artifactory-test-bundle
+    description: Create a local UDS Artifactory bundlewith dependencies
     actions:
-      - task: create:artifactory-test-bundle
+      - task: create-artifactory-package
+      - task: dependencies:create
+      - task: create:test-bundle
 
-  - name: deploy-package
+  - name: create-artifactory-latest-release-bundle
+    description: Create UDS Artifactory bundle with dependencies based on the latest release
     actions:
-      - task: deploy:artifactory-package
+      - task: pull:latest-package-release
+        with:
+          spoof_release: "true"
+      - task: dependencies:create
+      - task: create:test-bundle
 
-  - name: deploy-test-bundle
+  - name: deploy-artifactory-test-bundle
+    description: Deploy the Artifactory test bundle to local cluster
     actions:
-      - task: deploy:artifactory-test-bundle
+      - task: deploy:test-bundle
+
+  - name: local-all
+    description: Create then deploy local artifactory bundle
+    actions:
+      - task: create-artifactory-test-bundle
+      - task: deploy:test-bundle
+
+# CI will execute the following (via uds-common/.github/actions/test) so they need to be here with these names
 
   - name: test-package
+    description: Test the Artifactory package from the current branch
     actions:
+      - task: create-artifactory-test-bundle
+      - task: setup:k3d-test-cluster
+      - task: deploy:test-bundle
       - task: test:health-check
       - task: test:ingress
 
-  - name: cleanup
+  - name: test-upgrade
+    description: Test an upgrade from the latest released package to the current branch
     actions:
-      - task: teardown:destroy
+      - task: create-artifactory-latest-release-bundle
+      - task: setup:k3d-test-cluster
+      - task: deploy:test-bundle
+      - task: create-artifactory-test-bundle
+      - task: deploy:test-bundle
+      - task: test:health-check
+      - task: test:ingress
