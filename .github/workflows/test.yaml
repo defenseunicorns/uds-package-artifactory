@@ -39,7 +39,9 @@ jobs:
     strategy:
       matrix:
         flavor: [registry1]
-        type: [install, upgrade]
+        type: [install]
+        # Cannot test upgrade without a license key
+        # type: [install, upgrade]
 
     steps:
       - name: Checkout repository
