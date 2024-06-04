@@ -1,0 +1,21 @@
+global:
+  imagePullSecrets:
+    - name: private-registry
+initContainers:
+  image:
+    registry: registry1.dso.mil
+    repository: ironbank/redhat/ubi/ubi9-minimal
+    tag: 9.4
+artifactory:
+  name: artifactory
+  image:
+    registry: registry1.dso.mil
+    repository: ironbank/jfrog/artifactory/artifactory
+    tag: 7.77.5
+router:
+  name: router
+  image:
+    registry: registry1.dso.mil
+    repository: ironbank/jfrog/jfrog-xray/router
+    tag: 7.87.0
+installerInfo: '{"productId":"ironbank_helm_artifactory-pro/10.14.4","features":[{"featureId":"Partner/ACC-013116"}]}'

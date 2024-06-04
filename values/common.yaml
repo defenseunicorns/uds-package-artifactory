@@ -1,22 +1,8 @@
-global:
-  imagePullSecrets:
-    - name: private-registry
-initContainerImage: registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.4
+
 artifactory:
-  name: artifactory
-  image:
-    registry: registry1.dso.mil
-    repository: ironbank/jfrog/artifactory/artifactory
-    tag: 7.77.5
   license:
     secret: ###ZARF_VAR_LICENSE_SECRET_NAME###
     dataKey: ###ZARF_VAR_LICENSE_SECRET_KEY###
-router:
-  name: router
-  image:
-    registry: registry1.dso.mil
-    repository: ironbank/jfrog/jfrog-xray/router
-    tag: 7.87.0
 database:
   type: postgresql
   driver: org.postgresql.Driver
@@ -30,7 +16,6 @@ database:
     url:
       name: artifactory-postgres
       key: url
-installerInfo: '{"productId":"ironbank_helm_artifactory-pro/10.14.4","features":[{"featureId":"Partner/ACC-013116"}]}'
 nginx:
   enabled: false
 postgresql:
