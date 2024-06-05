@@ -35,7 +35,7 @@ jobs:
   run-test:
     name: ${{ matrix.type }} ${{ matrix.flavor }}
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 10
     strategy:
       matrix:
         flavor: [registry1]
@@ -67,25 +67,25 @@ jobs:
           suffix: ${{ matrix.type }}-${{ matrix.flavor }}-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Print cluster info
-        if: failure()
+        if: always()
         shell: bash -e -o pipefail {0}
         run: |
           kubectl get nodes -o wide
 
       - name: Print pod info
-        if: failure()
+        if: always()
         shell: bash -e -o pipefail {0}
         run: |
           kubectl get pods -A -o wide
 
       - name: Print service info
-        if: failure()
+        if: always()
         shell: bash -e -o pipefail {0}
         run: |
           kubectl get svc -A -o wide
 
       - name: Print events
-        if: failure()
+        if: always()
         shell: bash -e -o pipefail {0}
         run: |
           kubectl get events -A -o wide
