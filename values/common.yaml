@@ -1,4 +1,3 @@
-
 artifactory:
   license:
     secret: ###ZARF_VAR_LICENSE_SECRET_NAME###
