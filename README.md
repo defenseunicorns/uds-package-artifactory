@@ -1,69 +1,51 @@
-# uds-package-artifactory
+# 🚚 UDS Artifactory Zarf Package
 
-Bigbang [Artifactory](https://repo1.dso.mil/big-bang/apps/third-party/jfrog-platform) deployed via flux by zarf
+[![Latest Release](https://img.shields.io/github/v/release/defenseunicorns/uds-package-artifactory)](https://github.com/defenseunicorns/uds-package-artifactory/releases)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/defenseunicorns/uds-package-artifactory/tag-and-release.yaml)](https://github.com/defenseunicorns/uds-package-artifactory/actions/workflows/tag-and-release.yaml)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/defenseunicorns/uds-package-artifactory/badge)](https://api.securityscorecards.dev/projects/github.com/defenseunicorns/uds-package-artifactory)
 
-## Deployment Prerequisites
+This package is designed to be deployed on [UDS Core](https://github.com/defenseunicorns/uds-core), and is based on the upstream [Artifactory](https://github.com/jfrog/charts/tree/master/stable/artifactory) chart.
 
-### Resources
+## Pre-requisites
 
-- Minimum compute requirements for single node deployment are at LEAST 64 GB RAM and 32 virtual CPU threads (aws `m6i.8xlarge` instance type should do)
-- k3d installed on machine
+The Artifactory Package expects to be deployed on top of [UDS Core](https://github.com/defenseunicorns/uds-core) with the dependencies listed below being configured prior to deployment.
 
-#### General
+> [!IMPORTANT]
+> **NOTE**: Many features are locked behind a license. Some notable features include:
+> - In place upgrades
+> - Single sign-on capabilities
 
-- Create `artifactory` namespace
-- Label `artifactory` namespace with `istio-injection: enabled`
+Artifactory is configured by default to assume the internal dependencies that are used for testing (see postgres in the [bundle](bundle/uds-bundle.yaml)).
 
 #### Database
 
-- A Postgres database is running on port `5432` and accessible to the cluster
-- This database can be logged into via the user configured with the zarf var `ARTIFACTORY_DB_USERNAME`. Default is `artifactory`
-- This database instance has a psql database configured with the zarf var `ARTIFACTORY_DB_NAME`. Default is `artifactorydb`
+- A Postgres database is running on port `5432` and accessible to the cluster via the `ARTIFACTORY_DB_ENDPOINT` Zarf var.
+- This database can be logged into via the username configured with the Zarf var `ARTIFACTORY_DB_USERNAME`. Default is `artifactory.artifactory`
+- This database instance has a psql database created matching what is defined in the Zarf var `ARTIFACTORY_DB_NAME`. Default is `artifactorydb`
 - The user has read/write access to the above mentioned database
 - Create `artifactory-postgres` service in `artifactory` namespace that points to the psql database
 - Create `artifactory-postgres` secret in `artifactory` namespace with the key `password` that contains the password to the user for the psql database
 
-## Deploy
+## Flavors
 
-### Use zarf to login to the needed registries i.e. registry1.dso.mil
+| Flavor | Description | Example Creation |
+| ------ | ----------- | ---------------- |
+| registry1 | Uses images from registry1.dso.mil within the package. | `zarf package create . -f registry1` |
 
-```bash
-# Download Zarf
-make build/zarf
+> [!IMPORTANT]
+> **NOTE:** To create the registry1 flavor you will need to be logged into Iron Bank - you can find instructions on how to do this in the [Big Bang Zarf Tutorial](https://docs.zarf.dev/tutorials/6-big-bang/#setup).
 
-# Login to the registry
-set +o history
+## Releases
 
-# registry1.dso.mil (To access registry1 images needed during build time)
-export REGISTRY1_USERNAME="YOUR-USERNAME-HERE"
-export REGISTRY1_TOKEN="YOUR-TOKEN-HERE"
-echo $REGISTRY1_TOKEN | build/zarf tools registry login registry1.dso.mil --username $REGISTRY1_USERNAME --password-stdin
+The released packages can be found in [ghcr](https://github.com/defenseunicorns/uds-package-artifactory/pkgs/container/packages%2Fuds%2Fartifactory).
 
-set -o history
-```
+## UDS Tasks (for local dev and CI)
 
-### Build and Deploy Everything via Makefile and local package
+*For local dev, this requires you install [uds-cli](https://github.com/defenseunicorns/uds-cli?tab=readme-ov-file#install)
 
-```bash
-# This will run make build/all, make cluster/reset, and make deploy/all. Follow the breadcrumbs in the Makefile to see what and how its doing it.
-make all
-```
+> [!TIP]
+> To get a list of tasks to run you can use `uds run --list`!
 
-## Declare This Package In Your UDS Bundle
+## Contributing
 
-Below is an example of how to use this projects zarf package in your UDS Bundle
-
-```yaml
-kind: UDSBundle
-metadata:
-  name: example-bundle
-  description: An Example UDS Bundle
-  version: 0.0.1
-  architecture: amd64
-
-packages:
-  # Artifactory
-  - name: artifactory
-    repository: ghcr.io/defenseunicorns/uds/artifactory
-    ref: x.x.x
-```
+Please see the [CONTRIBUTING.md](./CONTRIBUTING.md)
