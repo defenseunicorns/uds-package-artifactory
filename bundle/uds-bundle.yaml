@@ -31,3 +31,35 @@ packages:
     # x-release-please-start-version
     ref: 107.77.12-uds.0
     # x-release-please-end
+    overrides:
+      artifactory:
+        artifactory:
+          values:
+            - path: router.resources.requests.memory
+              value: "100Mi"
+            - path: router.resources.requests.cpu
+              value: "100m"
+            - path: artifactory.resources.requests.memory
+              value: "500Mi"
+            - path: artifactory.resources.requests.cpu
+              value: "250m"
+            - path: frontend.resources.requests.memory
+              value: "100Mi"
+            - path: frontend.resources.requests.cpu
+              value: "100m"
+            - path: metadata.resources.requests.memory
+              value: "100Mi"
+            - path: metadata.resources.requests.cpu
+              value: "100m"
+            - path: event.resources.requests.memory
+              value: "100Mi"
+            - path: event.resources.requests.cpu
+              value: "100m"
+            - path: jfconnect.resources.requests.memory
+              value: "100Mi"
+            - path: jfconnect.resources.requests.cpu
+              value: "100m"
+            - path: observability.resources.requests.memory
+              value: "100Mi"
+            - path: observability.resources.requests.cpu
+              value: "100m"
