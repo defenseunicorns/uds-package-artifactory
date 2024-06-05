@@ -65,3 +65,27 @@ jobs:
         uses: defenseunicorns/uds-common/.github/actions/save-logs@11e591f2ec7d158923d973c85097ce28a5f55db4 # v0.4.5
         with:
           suffix: ${{ matrix.type }}-${{ matrix.flavor }}-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Print cluster info
+        if: failure()
+        shell: bash -e -o pipefail {0}
+        run: |
+          kubectl get nodes -o wide
+
+      - name: Print pod info
+        if: failure()
+        shell: bash -e -o pipefail {0}
+        run: |
+          kubectl get pods -A -o wide
+
+      - name: Print service info
+        if: failure()
+        shell: bash -e -o pipefail {0}
+        run: |
+          kubectl get svc -A -o wide
+
+      - name: Print events
+        if: failure()
+        shell: bash -e -o pipefail {0}
+        run: |
+          kubectl get events -A -o wide
