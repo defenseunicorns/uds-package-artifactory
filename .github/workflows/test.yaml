@@ -34,8 +34,8 @@ permissions:
 jobs:
   run-test:
     name: ${{ matrix.type }} ${{ matrix.flavor }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
+    runs-on: uds-ubuntu-big-boy-8-core
+    timeout-minutes: 25
     strategy:
       matrix:
         flavor: [registry1]
