@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/zarf/main/zarf.schema.json
+kind: ZarfPackageConfig
+metadata:
+  name: artifactory-common
+  description: "UDS Artifactory Common Package"
+
+components:
+  - name: artifactory
+    required: true
+    charts:
+      - name: uds-artifactory-config
+        namespace: artifactory
+        version: 0.1.0
+        localPath: ../chart
+      # renovate: datasource=helm
+      - name: artifactory
+        namespace: artifactory
+        url: https://charts.jfrog.io
+        version: 107.84.12
+        repoName: artifactory
+        releaseName: artifactory
+        valuesFiles:
+          - ../values/common.yaml

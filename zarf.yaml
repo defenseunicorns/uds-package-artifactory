@@ -19,22 +19,16 @@ components:
   - name: artifactory
     required: true
     description: "Deploy artifactory"
+    import:
+      path: common
     only:
       flavor: registry1
+      cluster:
+        architecture: amd64
     charts:
-      - name: uds-artifactory-config
-        namespace: artifactory
-        version: 0.1.0
-        localPath: chart
-      # renovate: datasource=helm
       - name: artifactory
-        url: https://charts.jfrog.io
-        version: 107.77.12
-        namespace: artifactory
-        repoName: artifactory
-        releaseName: artifactory
         valuesFiles:
-          - values/registry1-values.yaml
+          - values/registry1.yaml
     images:
       - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.77.5
       - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.87.0
