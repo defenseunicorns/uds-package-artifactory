@@ -1,5 +1,17 @@
 # Changelog
 
+## [107.78.0-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.77.12-uds.0...v107.78.0-uds.0) (2024-06-07)
+
+
+### Features
+
+* update chart to 107.84.12 ([#13](https://github.com/defenseunicorns/uds-package-artifactory/issues/13)) ([3529471](https://github.com/defenseunicorns/uds-package-artifactory/commit/3529471ee06f7946fa919703f84c571e6c8772da))
+
+
+### Bug Fixes
+
+* Remove Upgrade test ([bbea24b](https://github.com/defenseunicorns/uds-package-artifactory/commit/bbea24b87964213811d01b992299e7afd34d1ddf))
+
 ## [107.77.12-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.77.7-uds.0...v107.77.12-uds.0) (2024-05-09)
 
 
