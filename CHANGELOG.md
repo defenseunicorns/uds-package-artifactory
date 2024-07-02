@@ -1,5 +1,12 @@
 # Changelog
 
+## [107.78.0-uds.1](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.78.0-uds.0...v107.78.0-uds.1) (2024-07-02)
+
+
+### Miscellaneous
+
+* **deps:** update artifactory support dependencies ([#11](https://github.com/defenseunicorns/uds-package-artifactory/issues/11)) ([79183a3](https://github.com/defenseunicorns/uds-package-artifactory/commit/79183a3b614f7faed1f7b2c819846c32997148c1))
+
 ## [107.78.0-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.77.12-uds.0...v107.78.0-uds.0) (2024-06-07)
 
 
