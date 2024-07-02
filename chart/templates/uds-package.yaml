@@ -6,8 +6,8 @@ metadata:
 spec:
   {{- if .Values.sso }}
   sso:
-    - name: Artifactory SSO
-      clientId: uds-core-artifactory
+    - name: Artifactory Login
+      clientId: uds-package-artifactory
       redirectUris:
         - "https://artifactory.{{ .Values.domain }}/artifactory/"
   {{- end }}
@@ -22,17 +22,55 @@ spec:
     allow:
       - direction: Ingress
         remoteGenerated: IntraNamespace
+
+      - direction: Ingress
+        selector:
+          app: artifactory
+        remoteNamespace: monitoring
+        remoteSelector:
+          app.kubernetes.io/name: prometheus
+        ports:
+          - 8082
+        description: "Prometheus Metrics"
+
       - direction: Egress
         remoteGenerated: IntraNamespace
+
       - direction: Egress
-        podLabels:
-          app.kubernetes.io/name: artifactory
-        port: 443
-        description: "SSO"
-      - direction: Egress
-        # todo: this is over permissive, need to scope it down
-        remoteGenerated: KubeAPI
-      - direction: Egress
+        remoteGenerated: Anywhere
         podLabels:
           app: artifactory
+        port: 443
+        description: "SSO"
+
+      - direction: Egress
+        remoteGenerated: KubeAPI
+
+      - direction: Egress
+        selector:
+          app: artifactory
+        {{- if .Values.postgres.internal }}
+        remoteNamespace: {{ .Values.postgres.namespace | quote }}
+        remoteSelector:
+          {{ .Values.postgres.selector | toYaml | nindent 10 }}
+        {{- else }}
+        port: {{ .Values.postgres.port }}
         remoteGenerated: Anywhere
+        {{- end }}
+        description: "Postgres"
+
+      # Custom rules for unanticipated scenarios
+      {{- range .Values.custom }}
+      - direction: {{ .direction }}
+        selector:
+          {{ .selector | toYaml | nindent 10 }}
+        {{- if not .remoteGenerated }}
+        remoteNamespace: {{ .remoteNamespace }}
+        remoteSelector:
+          {{ .remoteSelector | toYaml | nindent 10 }}
+        port: {{ .port }}
+        {{- else }}
+        remoteGenerated: {{ .remoteGenerated }}
+        {{- end }}
+        description: {{ .description }}
+      {{- end }}

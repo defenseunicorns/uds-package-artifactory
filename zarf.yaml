@@ -21,10 +21,10 @@ components:
     description: "Deploy artifactory"
     import:
       path: common
-    only:
-      flavor: registry1
-      cluster:
-        architecture: amd64
+    # only:
+    #   flavor: registry1
+    #   cluster:
+    #     architecture: amd64
     charts:
       - name: artifactory
         valuesFiles:
