@@ -1,7 +1,4 @@
 artifactory:
-  license:
-    secret: ###ZARF_VAR_LICENSE_SECRET_NAME###
-    dataKey: ###ZARF_VAR_LICENSE_SECRET_KEY###
   admin:
     secret: artifactory-admin-credentials
     dataKey: adminCreds

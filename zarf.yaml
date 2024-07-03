@@ -8,10 +8,6 @@ metadata:
   # x-release-please-end
   architecture: amd64
 variables:
-  - name: LICENSE_SECRET_NAME
-    default: ""
-  - name: LICENSE_SECRET_KEY
-    default: ""
   - name: DOMAIN
     default: "uds.dev"
 
