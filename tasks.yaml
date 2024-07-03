@@ -12,25 +12,32 @@ tasks:
   - name: default
     description: Create K3D Cluster with UDS-Core + Artifactory
     actions:
-      - task: create-artifactory-test-bundle
+      - task: create-test-bundle
       - task: setup:k3d-test-cluster
       - task: deploy:test-bundle
 
-  - name: create-artifactory-package
+  - name: default-full
+    description: Create K3D Cluster with UDS-Core + Artifactory
+    actions:
+      - task: create-test-bundle
+      - task: setup:k3d-full-cluster
+      - task: deploy:test-bundle
+
+  - name: create-package
     description: Create UDS Artifactory Package, No dependencies included
     actions:
       - task: create:package
         with:
           options: "--skip-sbom --flavor registry1"
 
-  - name: create-artifactory-test-bundle
+  - name: create-test-bundle
     description: Create a local UDS Artifactory bundlewith dependencies
     actions:
-      - task: create-artifactory-package
+      - task: create-package
       - task: dependencies:create
       - task: create:test-bundle
 
-  - name: create-artifactory-latest-release-bundle
+  - name: create-latest-release-bundle
     description: Create UDS Artifactory bundle with dependencies based on the latest release
     actions:
       - task: pull:latest-package-release
@@ -39,7 +46,7 @@ tasks:
       - task: dependencies:create
       - task: create:test-bundle
 
-  - name: deploy-artifactory-test-bundle
+  - name: deploy-test-bundle
     description: Deploy the Artifactory test bundle to local cluster
     actions:
       - task: deploy:test-bundle
@@ -47,7 +54,7 @@ tasks:
   - name: local-all
     description: Create then deploy local artifactory bundle
     actions:
-      - task: create-artifactory-test-bundle
+      - task: create-test-bundle
       - task: deploy:test-bundle
 
 # CI will execute the following (via uds-common/.github/actions/test) so they need to be here with these names
@@ -55,7 +62,7 @@ tasks:
   - name: test-package
     description: Test the Artifactory package from the current branch
     actions:
-      - task: create-artifactory-test-bundle
+      - task: create-test-bundle
       - task: setup:k3d-test-cluster
       - task: deploy:test-bundle
       - task: test:health-check
@@ -64,10 +71,10 @@ tasks:
   - name: test-upgrade
     description: Test an upgrade from the latest released package to the current branch
     actions:
-      - task: create-artifactory-latest-release-bundle
+      - task: create-latest-release-bundle
       - task: setup:k3d-test-cluster
       - task: deploy:test-bundle
-      - task: create-artifactory-test-bundle
+      - task: create-test-bundle
       - task: deploy:test-bundle
       - task: test:health-check
       - task: test:ingress
