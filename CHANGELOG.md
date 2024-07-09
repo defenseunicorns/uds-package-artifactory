@@ -1,5 +1,21 @@
 # Changelog
 
+## [107.84.17-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.78.0-uds.0...v107.84.17-uds.0) (2024-07-09)
+
+
+### Features
+
+* adds basic test for logging into the UI of artifactory ([8477289](https://github.com/defenseunicorns/uds-package-artifactory/commit/8477289c771c50c0794ee3489ffec1f22a75e41a))
+* prometheus worky ([b0a78e4](https://github.com/defenseunicorns/uds-package-artifactory/commit/b0a78e4999179c98bc2f4cb6749f23d5762d8d63))
+
+
+### Miscellaneous
+
+* **deps:** update artifactory package dependencies ([#14](https://github.com/defenseunicorns/uds-package-artifactory/issues/14)) ([6ad4af0](https://github.com/defenseunicorns/uds-package-artifactory/commit/6ad4af06b8a673ab9d5cc30e7806123522112f44))
+* **deps:** update artifactory support dependencies ([#11](https://github.com/defenseunicorns/uds-package-artifactory/issues/11)) ([79183a3](https://github.com/defenseunicorns/uds-package-artifactory/commit/79183a3b614f7faed1f7b2c819846c32997148c1))
+* **deps:** update artifactory support dependencies ([#31](https://github.com/defenseunicorns/uds-package-artifactory/issues/31)) ([c01f583](https://github.com/defenseunicorns/uds-package-artifactory/commit/c01f5839ae779a28272e8e928ebc847c31332461))
+* release 107.84.17-uds.0 ([2ae8300](https://github.com/defenseunicorns/uds-package-artifactory/commit/2ae83007ab57d71009ff5225298a587aff7cc2fa))
+
 ## [107.78.0-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.77.12-uds.0...v107.78.0-uds.0) (2024-06-07)
 
 
