@@ -1,4 +1,4 @@
-# 🚚 UDS Artifactory Zarf Package
+# 🏪 UDS Artifactory Zarf Package
 
 [![Latest Release](https://img.shields.io/github/v/release/defenseunicorns/uds-package-artifactory)](https://github.com/defenseunicorns/uds-package-artifactory/releases)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/defenseunicorns/uds-package-artifactory/tag-and-release.yaml)](https://github.com/defenseunicorns/uds-package-artifactory/actions/workflows/tag-and-release.yaml)
