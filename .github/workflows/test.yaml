@@ -54,6 +54,9 @@ jobs:
           registry1Password: ${{ secrets.IRON_BANK_ROBOT_PASSWORD }}
           ghToken: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Playwright setup
+        uses: defenseunicorns/uds-common/.github/actions/playwright@b887451af5bc7edb3f1b040349a3405b018fe48a # v0.7.0
+
       - name: Test
         uses: defenseunicorns/uds-common/.github/actions/test@b887451af5bc7edb3f1b040349a3405b018fe48a # v0.7.0
         with:

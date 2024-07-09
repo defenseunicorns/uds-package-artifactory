@@ -16,3 +16,30 @@ tasks:
             protocol: https
             address: artifactory.uds.dev/ui/login/
             code: 200
+
+  - name: all
+    actions:
+      - task: test:health-check
+      - task: test:ingress
+      - task: test:credentials
+      - task: test:ui
+
+  - name: ui
+    description: GitLab UI Checks
+    actions:
+      - cmd: npx playwright test
+        dir: tests
+
+  - name: credentials
+    actions:
+      - description: Gets the randomly generated password to test login
+        cmd: echo "PASSWORD=$(./uds zarf tools kubectl get secrets artifactory-admin-credentials -n artifactory -o=jsonpath='{.data.password}' | base64 -d)" > tests/.env
+
+  - name: install-playwright-deps
+    actions:
+      - cmd: npm ci
+        dir: tests
+      - cmd: npm install dotenv
+        dir: tests
+      - cmd: npx playwright install --with-deps
+        dir: tests
