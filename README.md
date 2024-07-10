@@ -46,6 +46,20 @@ The released packages can be found in [ghcr](https://github.com/defenseunicorns/
 > [!TIP]
 > To get a list of tasks to run you can use `uds run --list`!
 
+## Redeploying/Upgrading pre-existing Artifactory
+
+> [!IMPORTANT]
+> **NOTE**: If admin credentials are changed or different from what is generated in the `artifactory-admin-credentials` secret, in the `values/common.yaml` set:
+
+``` yaml
+artifactory:
+  admin:
+    secret: ""
+    dataKey: ""
+```
+
+The credentials will be reset to what is in the secret if not set to empty or might break the deployment/upgrade entirely.
+
 ## Contributing
 
 Please see the [CONTRIBUTING.md](./CONTRIBUTING.md)
