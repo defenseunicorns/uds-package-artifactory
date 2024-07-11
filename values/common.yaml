@@ -3,7 +3,7 @@ artifactory:
     secret: artifactory-admin-credentials
     dataKey: adminCreds
   openMetrics:
-    enabled: false
+    enabled: true
 database:
   type: postgresql
   driver: org.postgresql.Driver
