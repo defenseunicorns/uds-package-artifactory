@@ -9,7 +9,7 @@ jobs:
   tag-new-version:
     name: Tag New Version
     permissions: write-all
-    runs-on: uds-ubuntu-big-boy-8-core
+    runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.release-flag.outputs.release_created }}
     steps:
