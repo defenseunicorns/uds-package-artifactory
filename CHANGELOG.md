@@ -1,5 +1,13 @@
 # Changelog
 
+## [107.84.17-uds.1](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.84.17-uds.0...v107.84.17-uds.1) (2024-07-19)
+
+
+### Bug Fixes
+
+* metrics now enabled by default ([140a162](https://github.com/defenseunicorns/uds-package-artifactory/commit/140a16295ee5eba8150c48fdcef46ca440101164))
+* removed registry1 flavor from tasks.yaml ([760c6be](https://github.com/defenseunicorns/uds-package-artifactory/commit/760c6bee01efa9a0ed91b9fc96926f9a1cdd368b))
+
 ## [107.84.17-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.78.0-uds.0...v107.84.17-uds.0) (2024-07-09)
 
 
