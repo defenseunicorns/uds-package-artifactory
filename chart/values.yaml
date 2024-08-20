@@ -11,6 +11,8 @@ serviceMonitor:
 admin:
   ip: "127.0.0.1"
   username: "admin"
+  # If left empty, it will automatically generate a password
+  password: ""
 
 postgres:
   # Set to false to use external postgres
