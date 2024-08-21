@@ -12,7 +12,7 @@ components:
         namespace: artifactory
         version: 0.1.0
         localPath: ../chart
-      # renovate: datasource=helm
+  # renovate: datasource=helm
       - name: artifactory
         namespace: artifactory
         url: https://charts.jfrog.io
@@ -21,3 +21,35 @@ components:
         releaseName: artifactory
         valuesFiles:
           - ../values/common.yaml
+    actions:
+      onDeploy:
+        after:
+          - cmd: kubectl get secret artifactory-admin-credentials -n artifactory -o=jsonpath='{.data.adminCreds}' | sha256sum | cut -d ' ' -f1
+            # mute: true
+            setVariables:
+              - name: CURRENT_SUM
+                # sensitive: true
+          - cmd: kubectl get sts artifactory -n artifactory -o=jsonpath='{.metadata.annotations.checksum/secret}' || true
+            # mute: true
+            setVariables:
+              - name: ANNOTATION_SUM
+                # sensitive: true
+          - cmd: |
+              if [[ -n "$ZARF_VAR_ANNOTATION_SUM" ]]; then
+                if [[ "$ZARF_VAR_CURRENT_SUM" == "$ZARF_VAR_ANNOTATION_SUM" ]]; then
+                  echo "Secret did not change"
+                else
+                  kubectl rollout restart sts artifactory -n artifactory
+                  kubectl wait -n artifactory statefulset/artifactory --for='jsonpath={status.availableReplicas}'=0 --timeout=500s
+                fi
+              fi
+              kubectl annotate --overwrite -n artifactory sts artifactory checksum/secret=${ZARF_VAR_CURRENT_SUM}
+            shell:
+              darwin: bash
+              linux: bash
+          - wait:
+              cluster:
+                kind: StatefulSet
+                name: artifactory
+                namespace: artifactory
+                condition: "{.status.readyReplicas}=1"
