@@ -1,5 +1,19 @@
 # Changelog
 
+## [107.84.17-uds.1](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.84.17-uds.0...v107.84.17-uds.1) (2024-08-21)
+
+
+### Bug Fixes
+
+* fixes changing artifactory admin password breaking things ([#42](https://github.com/defenseunicorns/uds-package-artifactory/issues/42)) ([a5fd7d5](https://github.com/defenseunicorns/uds-package-artifactory/commit/a5fd7d50d27cc0139f3967034dd22a0ec9d9b234))
+* metrics now enabled by default ([140a162](https://github.com/defenseunicorns/uds-package-artifactory/commit/140a16295ee5eba8150c48fdcef46ca440101164))
+* removed registry1 flavor from tasks.yaml ([760c6be](https://github.com/defenseunicorns/uds-package-artifactory/commit/760c6bee01efa9a0ed91b9fc96926f9a1cdd368b))
+
+
+### Miscellaneous
+
+* **deps:** update artifactory support dependencies ([#37](https://github.com/defenseunicorns/uds-package-artifactory/issues/37)) ([1ffbd87](https://github.com/defenseunicorns/uds-package-artifactory/commit/1ffbd87599b5fa83daa2ffffffb347000a83d22b))
+
 ## [107.84.17-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.78.0-uds.0...v107.84.17-uds.0) (2024-07-09)
 
 
