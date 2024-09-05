@@ -1,5 +1,12 @@
 # Changelog
 
+## [107.84.17-uds.2](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.84.17-uds.1...v107.84.17-uds.2) (2024-09-05)
+
+
+### Miscellaneous
+
+* add codeowners ([#44](https://github.com/defenseunicorns/uds-package-artifactory/issues/44)) ([ba96edc](https://github.com/defenseunicorns/uds-package-artifactory/commit/ba96edce2665b9a7d56c23e51ecc2afac2b485a2))
+
 ## [107.84.17-uds.1](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.84.17-uds.0...v107.84.17-uds.1) (2024-08-21)
 
 
