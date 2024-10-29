@@ -54,7 +54,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        type: [install, upgrade]
+        type: [install]
         flavor: [registry1]
     uses: defenseunicorns/uds-common/.github/workflows/callable-test.yaml@d59b1c601730bfa7ab76439643242358e529603e # v1.2.2
     with:

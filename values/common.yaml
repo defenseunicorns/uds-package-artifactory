@@ -5,7 +5,7 @@ artifactory:
   admin:
     secret: artifactory-admin-credentials
     dataKey: adminCreds
-  openMetrics:
+  metrics:
     enabled: true
 database:
   type: postgresql
