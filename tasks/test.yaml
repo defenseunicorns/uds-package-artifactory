@@ -22,6 +22,7 @@ tasks:
       - task: test:health-check
       - task: test:ingress
       - task: test:credentials
+      - task: test:install-playwright-deps
       - task: test:ui
 
   - name: ui
