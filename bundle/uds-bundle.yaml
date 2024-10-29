@@ -20,10 +20,21 @@ packages:
     overrides:
       postgres-operator:
         uds-postgres-config:
-          variables:
-            - name: POSTGRESQL
-              description: "Configure postgres using CRs via the uds-postgres-config chart"
-              path: postgresql
+          values:
+            - path: postgresql
+              value:
+                enabled: true  # Set to false to not create the PostgreSQL resource
+                teamId: "uds"
+                volume:
+                  size: "10Gi"
+                numberOfInstances: 2
+                users:
+                  artifactory.artifactory: []  # database owner
+                databases:
+                  artifactorydb: artifactory.artifactory
+                version: "16"
+                ingress:
+                  - remoteNamespace: artifactory
 
   - name: dev-secrets
     path: ../

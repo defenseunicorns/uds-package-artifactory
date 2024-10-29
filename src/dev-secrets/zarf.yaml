@@ -23,7 +23,7 @@ components:
           - cmd: kubectl get secret -n artifactory artifactory.artifactory.pg-cluster.credentials.postgresql.acid.zalan.do --template={{.data.password}} | base64 -d
             mute: true
             setVariables:
-              - name: POSTGRES_DB_PASSWORD
+              - name: ARTIFACTORY_DB_PASSWORD
                 sensitive: true
   - name: artifactory-postgres
     required: true
