@@ -1,5 +1,20 @@
 # Changelog
 
+## [107.85.0-uds.1](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.84.17-uds.1...v107.85.0-uds.1) (2024-11-01)
+
+
+### Features
+
+* updating workflows and tasks to latest varsion ([#48](https://github.com/defenseunicorns/uds-package-artifactory/issues/48)) ([cfc7b74](https://github.com/defenseunicorns/uds-package-artifactory/commit/cfc7b749dc0181d5743e13dd86c281de24513dac))
+
+
+### Miscellaneous
+
+* add codeowners ([#44](https://github.com/defenseunicorns/uds-package-artifactory/issues/44)) ([ba96edc](https://github.com/defenseunicorns/uds-package-artifactory/commit/ba96edce2665b9a7d56c23e51ecc2afac2b485a2))
+* **deps:** update artifactory support dependencies ([#43](https://github.com/defenseunicorns/uds-package-artifactory/issues/43)) ([acbed34](https://github.com/defenseunicorns/uds-package-artifactory/commit/acbed3468247a18ceb04a759fd19837675866236))
+* **deps:** update package-deps to v7.98.7 ([#41](https://github.com/defenseunicorns/uds-package-artifactory/issues/41)) ([6ffa96b](https://github.com/defenseunicorns/uds-package-artifactory/commit/6ffa96b7524120b6bdd83caeed98c371a58a292a))
+* update CODEOWNERS ([#46](https://github.com/defenseunicorns/uds-package-artifactory/issues/46)) ([3b37047](https://github.com/defenseunicorns/uds-package-artifactory/commit/3b370471c78aaefb3c678958c07f161556369776))
+
 ## [107.84.17-uds.1](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.84.17-uds.0...v107.84.17-uds.1) (2024-08-21)
 
 
