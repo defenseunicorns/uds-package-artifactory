@@ -1,3 +1,6 @@
+# Copyright 2024 Defense Unicorns
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Defense-Unicorns-Commercial
+
 kind: UDSBundle
 metadata:
   name: artifactory-test
@@ -13,14 +16,25 @@ packages:
 
   - name: postgres-operator
     repository: ghcr.io/defenseunicorns/packages/uds/postgres-operator
-    ref: 1.10.1-uds.4-upstream
+    ref: 1.13.0-uds.3-upstream
     overrides:
       postgres-operator:
         uds-postgres-config:
-          variables:
-            - name: POSTGRESQL
-              description: "Configure postgres using CRs via the uds-postgres-config chart"
-              path: postgresql
+          values:
+            - path: postgresql
+              value:
+                enabled: true  # Set to false to not create the PostgreSQL resource
+                teamId: "uds"
+                volume:
+                  size: "10Gi"
+                numberOfInstances: 2
+                users:
+                  artifactory.artifactory: []  # database owner
+                databases:
+                  artifactorydb: artifactory.artifactory
+                version: "16"
+                ingress:
+                  - remoteNamespace: artifactory
 
   - name: dev-secrets
     path: ../

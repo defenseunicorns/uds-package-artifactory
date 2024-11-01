@@ -1,3 +1,6 @@
+# Copyright 2024 Defense Unicorns
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Defense-Unicorns-Commercial
+
 # yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/zarf/main/zarf.schema.json
 kind: ZarfPackageConfig
 metadata:
@@ -26,6 +29,6 @@ components:
         valuesFiles:
           - values/registry1.yaml
     images:
-      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.84.14
-      - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.108.0
+      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.90.15
+      - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.124.1
       - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.4

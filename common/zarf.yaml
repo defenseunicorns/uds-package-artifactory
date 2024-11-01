@@ -1,3 +1,6 @@
+# Copyright 2024 Defense Unicorns
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Defense-Unicorns-Commercial
+
 # yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/zarf/main/zarf.schema.json
 kind: ZarfPackageConfig
 metadata:
@@ -16,7 +19,7 @@ components:
       - name: artifactory
         namespace: artifactory
         url: https://charts.jfrog.io
-        version: 107.84.17
+        version: 107.98.7
         repoName: artifactory
         releaseName: artifactory
         valuesFiles:
