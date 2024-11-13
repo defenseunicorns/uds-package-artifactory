@@ -5,6 +5,8 @@ domain: "###ZARF_VAR_DOMAIN###"
 
 sso:
   enabled: true
+  # This will replace the current list of default client scopes.
+  defaultClientScopes: {}
 
 serviceMonitor:
   secretName: artifactory-admin-credentials
