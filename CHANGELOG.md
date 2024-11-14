@@ -1,5 +1,18 @@
 # Changelog
 
+## [7.99.0-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v7.98.7-uds.0...v7.99.0-uds.0) (2024-11-14)
+
+
+### Features
+
+* configurable defaultClientScopes ([24b05e3](https://github.com/defenseunicorns/uds-package-artifactory/commit/24b05e31d46681c965f6cee7182c7e1783cd24ac))
+
+
+### Miscellaneous
+
+* **deps:** update artifactory package dependencies ([#55](https://github.com/defenseunicorns/uds-package-artifactory/issues/55)) ([36e408c](https://github.com/defenseunicorns/uds-package-artifactory/commit/36e408c75538d92b2fa933bdb747784d4a5540af))
+* **deps:** update artifactory support dependencies ([#54](https://github.com/defenseunicorns/uds-package-artifactory/issues/54)) ([6f0060a](https://github.com/defenseunicorns/uds-package-artifactory/commit/6f0060a2f246360feb0fe937b6d351ffcaf0c17e))
+
 ## [7.98.7-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v107.84.17-uds.1...v7.98.7-uds.0) (2024-11-01)
 
 
