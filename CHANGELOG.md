@@ -1,5 +1,24 @@
 # Changelog
 
+## [7.98.8-uds.1](https://github.com/defenseunicorns/uds-package-artifactory/compare/v7.98.8-uds.0...v7.98.8-uds.1) (2024-11-22)
+
+
+### Features
+
+* add ability to set user groups for access ([#62](https://github.com/defenseunicorns/uds-package-artifactory/issues/62)) ([7a9a9e7](https://github.com/defenseunicorns/uds-package-artifactory/commit/7a9a9e704631841826e179354ad4306201be9877))
+
+
+### Bug Fixes
+
+* change defaultclientscopes from map to list ([28ba6c6](https://github.com/defenseunicorns/uds-package-artifactory/commit/28ba6c61d74a8edefcdecd8ffe95deaa24cd2ae9))
+
+
+### Miscellaneous
+
+* **deps:** update artifactory support dependencies ([#59](https://github.com/defenseunicorns/uds-package-artifactory/issues/59)) ([5ff3973](https://github.com/defenseunicorns/uds-package-artifactory/commit/5ff39735cfb982d27c2d7cb74ad70708b08f9f86))
+* **deps:** update artifactory support dependencies ([#61](https://github.com/defenseunicorns/uds-package-artifactory/issues/61)) ([c5d84f5](https://github.com/defenseunicorns/uds-package-artifactory/commit/c5d84f5c65a4bbe73e6745dc18447b411c356bba))
+* release 7.98.8-uds.1 ([faba6cc](https://github.com/defenseunicorns/uds-package-artifactory/commit/faba6cc8120700265c9786f9702b9e95da7dfd52))
+
 ## [7.98.8-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v7.98.7-uds.0...v7.98.8-uds.0) (2024-11-14)
 
 
