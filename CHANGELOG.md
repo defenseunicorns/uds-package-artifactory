@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.98.9-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v7.98.8-uds.1...v7.98.9-uds.0) (2024-12-05)
+
+
+### Miscellaneous
+
+* **deps:** update artifactory package dependencies ([#65](https://github.com/defenseunicorns/uds-package-artifactory/issues/65)) ([10c54f2](https://github.com/defenseunicorns/uds-package-artifactory/commit/10c54f29553e2043cb248dbfe4db5de808eccc4e))
+* **deps:** update artifactory support dependencies ([#63](https://github.com/defenseunicorns/uds-package-artifactory/issues/63)) ([d3425cd](https://github.com/defenseunicorns/uds-package-artifactory/commit/d3425cddcf21d5a5554c55914b0ccf955bfb72a5))
+* **deps:** update artifactory support dependencies ([#66](https://github.com/defenseunicorns/uds-package-artifactory/issues/66)) ([8912350](https://github.com/defenseunicorns/uds-package-artifactory/commit/8912350ccc00512ecf909a0a13a19ed2205cc8c8))
+* **deps:** update package-deps to v1.13.0-uds.5-upstream ([#68](https://github.com/defenseunicorns/uds-package-artifactory/issues/68)) ([150e438](https://github.com/defenseunicorns/uds-package-artifactory/commit/150e438e7f1cfba092a23a5490a81d574386b0af))
+* **deps:** update support-deps to v39.49.3 ([#69](https://github.com/defenseunicorns/uds-package-artifactory/issues/69)) ([d738506](https://github.com/defenseunicorns/uds-package-artifactory/commit/d738506abd32a1b08a51015ccbd0210f60f7c336))
+* release 7.98.9-uds.0 ([b2d88c6](https://github.com/defenseunicorns/uds-package-artifactory/commit/b2d88c6f7ea674099f61292329eee8b0d02726a6))
+
 ## [7.98.8-uds.1](https://github.com/defenseunicorns/uds-package-artifactory/compare/v7.98.8-uds.0...v7.98.8-uds.1) (2024-11-22)
 
 
