@@ -1,5 +1,19 @@
 # Changelog
 
+## [7.98.9-uds.1](https://github.com/defenseunicorns/uds-package-artifactory/compare/v7.98.9-uds.0...v7.98.9-uds.1) (2024-12-19)
+
+
+### Bug Fixes
+
+* change from ubuntu-latest runner and write perms for publish job ([df61c6e](https://github.com/defenseunicorns/uds-package-artifactory/commit/df61c6eaf867b03f5c3d1818d77cb8550fcd9b93))
+
+
+### Miscellaneous
+
+* **deps:** update artifactory package dependencies ([#71](https://github.com/defenseunicorns/uds-package-artifactory/issues/71)) ([1a4711f](https://github.com/defenseunicorns/uds-package-artifactory/commit/1a4711f4fd7bfcccf54e41660dce262d43ea7b24))
+* **deps:** update artifactory support dependencies ([#70](https://github.com/defenseunicorns/uds-package-artifactory/issues/70)) ([262a1e8](https://github.com/defenseunicorns/uds-package-artifactory/commit/262a1e86e58a666bd34d2f8e1ad1751eadf3ad31))
+* **deps:** update support-deps to v39.75.0 ([#73](https://github.com/defenseunicorns/uds-package-artifactory/issues/73)) ([354b838](https://github.com/defenseunicorns/uds-package-artifactory/commit/354b838a27e62f0325a536e60680a14ba06823bc))
+
 ## [7.98.9-uds.0](https://github.com/defenseunicorns/uds-package-artifactory/compare/v7.98.8-uds.1...v7.98.9-uds.0) (2024-12-05)
 
 
