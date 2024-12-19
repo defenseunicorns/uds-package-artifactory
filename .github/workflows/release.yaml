@@ -28,4 +28,5 @@ jobs:
     with:
       flavor: ${{ matrix.flavor }}
       runsOn: uds-marketplace-ubuntu-big-boy-8-core
+      uds-releaser: true
     secrets: inherit # Inherits all secrets from the parent workflow.
