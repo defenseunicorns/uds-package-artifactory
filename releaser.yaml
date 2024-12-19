@@ -1,0 +1,7 @@
+# Copyright 2024 Defense Unicorns
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Defense-Unicorns-Commercial
+
+flavors:
+  - name: registry1
+    # renovate-uds: datasource=docker depName=registry1.dso.mil/ironbank/image
+    version: 7.98.11-uds.0
