@@ -4,4 +4,4 @@
 flavors:
   - name: registry1
     # renovate-uds: datasource=docker depName=registry1.dso.mil/ironbank/jfrog/artifactory/artifactory
-    version: 7.98.12-uds.0
+    version: 7.98.12-uds.1

@@ -12,7 +12,7 @@ spec:
     - name: Artifactory Login
       clientId: uds-package-artifactory
       redirectUris:
-        - "https://artifactory.{{ .Values.domain }}/artifactory/"
+        - "https://artifactory.{{ .Values.domain }}/*"
       defaultClientScopes:
       {{- if .Values.sso.defaultClientScopes }}
         {{- range .Values.sso.defaultClientScopes }}
