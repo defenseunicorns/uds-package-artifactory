@@ -27,6 +27,6 @@ components:
         valuesFiles:
           - values/registry1.yaml
     images:
-      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.104.12
+      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.104.14
       - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.149.1
       - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.5
