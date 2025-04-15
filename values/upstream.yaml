@@ -21,4 +21,3 @@ router:
     registry: releases-docker.jfrog.io
     repository: jfrog/router
     tag: 7.149.2
-installerInfo: '{"productId":"ironbank_helm_artifactory-pro/10.14.4","features":[{"featureId":"Partner/ACC-013116"}]}'

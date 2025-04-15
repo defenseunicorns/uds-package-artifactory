@@ -38,8 +38,6 @@ components:
       path: common
     only:
       flavor: upstream
-      cluster:
-        architecture: amd64
     charts:
       - name: artifactory
         valuesFiles:
