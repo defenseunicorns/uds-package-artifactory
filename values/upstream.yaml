@@ -1,0 +1,24 @@
+# Copyright 2024 Defense Unicorns
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Defense-Unicorns-Commercial
+
+global:
+  imagePullSecrets:
+    - name: private-registry
+initContainers:
+  image:
+    registry: registry1.dso.mil
+    repository: ironbank/redhat/ubi/ubi9-minimal
+    tag: 9.5
+artifactory:
+  name: artifactory
+  image:
+    registry: registry1.dso.mil
+    repository: ironbank/jfrog/artifactory/artifactory
+    tag: 7.104.14
+router:
+  name: router
+  image:
+    registry: registry1.dso.mil
+    repository: ironbank/jfrog/jfrog-xray/router
+    tag: 7.149.1
+installerInfo: '{"productId":"ironbank_helm_artifactory-pro/10.14.4","features":[{"featureId":"Partner/ACC-013116"}]}'
