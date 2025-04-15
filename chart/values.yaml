@@ -30,6 +30,7 @@ postgres:
     usernameKey: username
   host: "pg-cluster.postgres.svc.cluster.local"
   dbName: "artifactory"
+  connectionOptions: "sslfactory=org.postgresql.ssl.NonValidatingFactory&sslmode=require"
 
   # Set to false to use external postgres
   internal: true
