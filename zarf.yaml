@@ -43,6 +43,6 @@ components:
         valuesFiles:
           - values/upstream.yaml
     images:
-      - releases-docker-reg2.jfrog.io/jfrog/artifactory-oss:sha256__431469eea2c76349aaf3d77ac5933e8463615fe388475640d01bbec9e7cf8c3a
+      - releases-docker-reg2.jfrog.io/jfrog/artifactory-pro:7.104.15
       - releases-docker.jfrog.io/jfrog/router:7.149.2
       - releases-docker.jfrog.io/ubi9/ubi-minimal:9.5.1741850109
