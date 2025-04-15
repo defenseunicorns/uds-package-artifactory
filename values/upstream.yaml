@@ -6,19 +6,19 @@ global:
     - name: private-registry
 initContainers:
   image:
-    registry: registry1.dso.mil
-    repository: ironbank/redhat/ubi/ubi9-minimal
-    tag: 9.5
+    registry: releases-docker.jfrog.io
+    repository: ubi9/ubi-minimal
+    tag: 9.5.1741850109
 artifactory:
   name: artifactory
   image:
-    registry: registry1.dso.mil
-    repository: ironbank/jfrog/artifactory/artifactory
-    tag: 7.104.14
+    registry: releases-docker-reg2.jfrog.io
+    repository: jfrog/artifactory-oss
+    tag: sha256__431469eea2c76349aaf3d77ac5933e8463615fe388475640d01bbec9e7cf8c3a
 router:
   name: router
   image:
-    registry: registry1.dso.mil
-    repository: ironbank/jfrog/jfrog-xray/router
-    tag: 7.149.1
+    registry: releases-docker.jfrog.io
+    repository: jfrog/router
+    tag: 7.149.2
 installerInfo: '{"productId":"ironbank_helm_artifactory-pro/10.14.4","features":[{"featureId":"Partner/ACC-013116"}]}'
