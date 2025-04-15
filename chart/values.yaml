@@ -21,6 +21,16 @@ admin:
   password: ""
 
 postgres:
+  username: "artifactory.artifactory"
+  # Note: Specifying password as anything other than "" will not use the existingSecret
+  password: ""
+  existingSecret:
+    name: "artifactory.artifactory.pg-cluster.credentials.postgresql.acid.zalan.do"
+    passwordKey: password
+    usernameKey: username
+  host: "pg-cluster.postgres.svc.cluster.local"
+  dbName: "artifactory"
+
   # Set to false to use external postgres
   internal: true
   selector:
