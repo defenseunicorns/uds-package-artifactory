@@ -27,10 +27,9 @@ postgres:
   existingSecret:
     name: "artifactory.artifactory.pg-cluster.credentials.postgresql.acid.zalan.do"
     passwordKey: password
-    usernameKey: username
   host: "pg-cluster.postgres.svc.cluster.local"
   dbName: "artifactory"
-  connectionOptions: "sslfactory=org.postgresql.ssl.NonValidatingFactory&sslmode=require"
+  connectionOptions: ""
 
   # Set to false to use external postgres
   internal: true
