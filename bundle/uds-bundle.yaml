@@ -8,10 +8,6 @@ metadata:
   version: dev
 
 packages:
-  - name: dev-namespace
-    path: ../
-    ref: 0.1.0
-
   - name: postgres-operator
     repository: ghcr.io/defenseunicorns/packages/uds/postgres-operator
     ref: 1.14.0-uds.1-upstream
