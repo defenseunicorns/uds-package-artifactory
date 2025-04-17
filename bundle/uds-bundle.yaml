@@ -8,10 +8,6 @@ metadata:
   version: dev
 
 packages:
-  - name: dev-namespace
-    path: ../
-    ref: 0.1.0
-
   - name: postgres-operator
     repository: ghcr.io/defenseunicorns/packages/uds/postgres-operator
     ref: 1.14.0-uds.1-upstream
@@ -29,15 +25,29 @@ packages:
                 users:
                   artifactory.artifactory: []  # database owner
                 databases:
-                  artifactorydb: artifactory.artifactory
+                  artifactory: artifactory.artifactory
                 version: "16"
                 ingress:
                   - remoteNamespace: artifactory
 
-  - name: dev-secrets
-    path: ../
-    ref: 0.1.0
-
   - name: artifactory
     path: ../
     ref: dev
+    overrides:
+      artifactory:
+        uds-artifactory-config:
+          values:
+            - path: postgres.username
+              value: "artifactory.artifactory"
+            - path: postgres.password
+              value: ""
+            - path: postgres.existingSecret.name
+              value: "artifactory.artifactory.pg-cluster.credentials.postgresql.acid.zalan.do"
+            - path: postgres.host
+              value: "pg-cluster.postgres.svc.cluster.local"
+            - path: postgres.dbName
+              value: "artifactory"
+            - path: postgres.connectionOptions
+              value: "sslfactory=org.postgresql.ssl.NonValidatingFactory&sslmode=require"
+            - path: postgres.internal
+              value: true

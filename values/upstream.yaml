@@ -1,0 +1,23 @@
+# Copyright 2024 Defense Unicorns
+# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Defense-Unicorns-Commercial
+
+global:
+  imagePullSecrets:
+    - name: private-registry
+initContainers:
+  image:
+    registry: releases-docker.jfrog.io
+    repository: ubi9/ubi-minimal
+    tag: 9.5.1741850109
+artifactory:
+  name: artifactory
+  image:
+    registry: releases-docker.jfrog.io
+    repository: jfrog/artifactory-pro
+    tag: 7.104.14
+router:
+  name: router
+  image:
+    registry: releases-docker.jfrog.io
+    repository: jfrog/router
+    tag: 7.149.2

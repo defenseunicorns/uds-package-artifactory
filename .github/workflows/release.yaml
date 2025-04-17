@@ -22,11 +22,14 @@ jobs:
       id-token: write
     strategy:
       matrix:
-        flavor: [registry1]
-        architecture: [amd64]
+        flavor: [upstream, registry1]
+        architecture: [amd64, arm64]
+        exclude:
+          - flavor: registry1
+            architecture: arm64
     uses: defenseunicorns/uds-common/.github/workflows/callable-publish.yaml@2b06435fe0f72809892f7b0f128b1df433b865f7 # v1.11.2
     with:
       flavor: ${{ matrix.flavor }}
-      runsOn: uds-marketplace-ubuntu-big-boy-8-core
+      runsOn: ${{ matrix.architecture == 'arm64' && 'uds-marketplace-ubuntu-arm64-8-core' || 'uds-marketplace-ubuntu-big-boy-8-core' }}
       uds-releaser: true
     secrets: inherit # Inherits all secrets from the parent workflow.

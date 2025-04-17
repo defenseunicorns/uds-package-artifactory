@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-Defense-Unicorns-Commercial
 
 includes:
-  - dependencies: ./tasks/dependencies.yaml
   - test: ./tasks/test.yaml
   - create: https://raw.githubusercontent.com/defenseunicorns/uds-common/v1.11.2/tasks/create.yaml
   - lint: https://raw.githubusercontent.com/defenseunicorns/uds-common/v1.11.2/tasks/lint.yaml
@@ -17,30 +16,29 @@ includes:
 
 tasks:
   - name: default
-    description: Create K3D Cluster with lite UDS-Core + Confluence
+    description: Create K3D Cluster with lite UDS-Core + Artifactory
     actions:
       - task: create-dev-package
       - task: setup:k3d-test-cluster
       - task: create-deploy-test-bundle
 
   - name: default-full
-    description: Create K3D Cluster with full UDS-Core + Confluence
+    description: Create K3D Cluster with full UDS-Core + Artifactory
     actions:
       - task: create-dev-package
       - task: setup:k3d-full-cluster
       - task: create-deploy-test-bundle
 
   - name: create-dev-package
-    description: Create the Confluence package
+    description: Create the Artifactory package
     actions:
       - task: create:package
         with:
           options: "--skip-sbom"
 
   - name: create-deploy-test-bundle
-    description: Test and validate cluster is deployed with Confluence
+    description: Test and validate cluster is deployed with Artifactory
     actions:
-      - task: dependencies:create
       - task: create:test-bundle
       - task: deploy:test-bundle
       - task: setup:create-doug-user
@@ -55,7 +53,7 @@ tasks:
 
 # CI will execute the following (via uds-common/.github/workflows/callable-test.yaml) so they need to be here with these names
 
-  - name: test-package
+  - name: test-install
     description: Test deploying the current branch to a new cluster
     actions:
       - task: create-dev-package

@@ -30,3 +30,19 @@ components:
       - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.104.14
       - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.149.1
       - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.5
+
+  - name: artifactory
+    required: true
+    description: "Deploy artifactory"
+    import:
+      path: common
+    only:
+      flavor: upstream
+    charts:
+      - name: artifactory
+        valuesFiles:
+          - values/upstream.yaml
+    images:
+      - releases-docker.jfrog.io/jfrog/artifactory-pro:7.104.14
+      - releases-docker.jfrog.io/jfrog/router:7.149.2
+      - releases-docker.jfrog.io/ubi9/ubi-minimal:9.5.1741850109

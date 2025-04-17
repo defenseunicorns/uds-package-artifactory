@@ -12,13 +12,13 @@ database:
   driver: org.postgresql.Driver
   secrets:
     password:
-      name: artifactory-postgres
+      name: artifactory-postgres-db
       key: password
     user:
-      name: artifactory-postgres
+      name: artifactory-postgres-db
       key: user
     url:
-      name: artifactory-postgres
+      name: artifactory-postgres-db
       key: url
 nginx:
   enabled: false
