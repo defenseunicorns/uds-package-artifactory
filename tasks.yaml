@@ -16,28 +16,28 @@ includes:
 
 tasks:
   - name: default
-    description: Create K3D Cluster with lite UDS-Core + Confluence
+    description: Create K3D Cluster with lite UDS-Core + Artifactory
     actions:
       - task: create-dev-package
       - task: setup:k3d-test-cluster
       - task: create-deploy-test-bundle
 
   - name: default-full
-    description: Create K3D Cluster with full UDS-Core + Confluence
+    description: Create K3D Cluster with full UDS-Core + Artifactory
     actions:
       - task: create-dev-package
       - task: setup:k3d-full-cluster
       - task: create-deploy-test-bundle
 
   - name: create-dev-package
-    description: Create the Confluence package
+    description: Create the Artifactory package
     actions:
       - task: create:package
         with:
           options: "--skip-sbom"
 
   - name: create-deploy-test-bundle
-    description: Test and validate cluster is deployed with Confluence
+    description: Test and validate cluster is deployed with Artifactory
     actions:
       - task: create:test-bundle
       - task: deploy:test-bundle
