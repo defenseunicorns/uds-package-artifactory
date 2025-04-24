@@ -50,6 +50,46 @@ components:
             shell:
               darwin: bash
               linux: bash
+          - cmd: |
+              ADMIN_USER=$(uds zarf tools kubectl get secret artifactory-admin-credentials -n artifactory -o=jsonpath='{.data.username}' | base64 -d)
+              ADMIN_PASS=$(uds zarf tools kubectl get secret artifactory-admin-credentials -n artifactory -o=jsonpath='{.data.password}' | base64 -d)
+              
+              CLIENT_ID=$(uds zarf tools kubectl get secret artifactory-keycloak-client -n artifactory -o=jsonpath='{.data.artifactory_client_id}' | base64 -d)
+              CLIENT_SECRET=$(uds zarf tools kubectl get secret artifactory-keycloak-client -n artifactory -o=jsonpath='{.data.artifactory_client_secret}' | base64 -d)
+              AUTH_URL=$(uds zarf tools kubectl get secret artifactory-keycloak-client -n artifactory -o=jsonpath='{.data.keycloak_auth_url}' | base64 -d)
+              API_URL=$(uds zarf tools kubectl get secret artifactory-keycloak-client -n artifactory -o=jsonpath='{.data.keycloak_api_url}' | base64 -d)
+              TOKEN_URL=$(uds zarf tools kubectl get secret artifactory-keycloak-client -n artifactory -o=jsonpath='{.data.keycloak_token_url}' | base64 -d)
+              
+              echo "Setting up OpenID OAuth SSO using ${CLIENT_ID}"
+              echo "Auth: ${AUTH_URL}"
+              echo "Token: ${TOKEN_URL}"
+              echo "API: ${API_URL}"
+    
+              curl -u "${ADMIN_USER}:${ADMIN_PASS}" -X POST "https://artifactory.${ZARF_VAR_DOMAIN}/artifactory/api/oauth" \
+                  -H "Content-Type: application/json" \
+                  -d @- <<EOF
+              {
+                  "enabled": false,
+                  "persistUsers": true,
+                  "allowUserToAccessProfile": true,
+                  "groupClaimName": "groups",
+                  "oauthProvidersSettings": [
+                      {
+                      "name": "Login with OpenID",
+                      "type": "openid",
+                      "clientId": "${CLIENT_ID}",
+                      "clientSecret": "${CLIENT_SECRET}",
+                      "authorizationEndpoint": "${AUTH_URL}",
+                      "tokenEndpoint": "${TOKEN_URL}",
+                      "userInfoEndpoint": "${API_URL}",
+                      "scopes": ["openid", "profile", "email"]
+                      }
+                  ]
+              }
+              EOF
+            shell:
+              darwin: bash
+              linux: bash
           - wait:
               cluster:
                 kind: StatefulSet
