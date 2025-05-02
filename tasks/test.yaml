@@ -30,7 +30,8 @@ tasks:
   - name: ui
     description: GitLab UI Checks
     actions:
-      - cmd: |
+      - dir: tests
+        cmd: |
           docker run --user="$(id -u)" --rm --ipc=host --net=host --mount type=bind,source="$(pwd)",target=/app mcr.microsoft.com/playwright:v1.52.0-jammy sh -c " \
             export npm_config_cache=/tmp/.npm && \
             cd app && \
