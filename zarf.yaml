@@ -27,8 +27,8 @@ components:
         valuesFiles:
           - values/registry1.yaml
     images:
-      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.104.14
-      - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.149.1
+      - registry1.dso.mil/ironbank/jfrog/artifactory/artifactory:7.111.4
+      - registry1.dso.mil/ironbank/jfrog/jfrog-xray/router:7.165.2
       - registry1.dso.mil/ironbank/redhat/ubi/ubi9-minimal:9.5
 
   - name: artifactory
@@ -43,6 +43,6 @@ components:
         valuesFiles:
           - values/upstream.yaml
     images:
-      - releases-docker.jfrog.io/jfrog/artifactory-pro:7.104.14
-      - releases-docker.jfrog.io/jfrog/router:7.149.2
-      - releases-docker.jfrog.io/ubi9/ubi-minimal:9.5.1741850109
+      - releases-docker.jfrog.io/jfrog/artifactory-pro:7.111.4
+      - releases-docker.jfrog.io/jfrog/router:7.165.2
+      - releases-docker.jfrog.io/ubi9/ubi-minimal:9.5.1745855087
