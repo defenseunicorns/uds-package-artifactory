@@ -14,7 +14,7 @@ The Artifactory Package expects to be deployed on top of [UDS Core](https://gith
 > **NOTE #1:** This package has been migrated to use Istio Ambient. Minimum version of uds-core required is `0.40.x`
 
 > [!IMPORTANT]
-> **NOTE**: Many features are locked behind a license. Some notable features include:
+> **NOTE #2**: Many features are locked behind a license. Some notable features include:
 > - In place upgrades
 > - Single sign-on capabilities
 
