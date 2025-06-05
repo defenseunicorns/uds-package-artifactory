@@ -4,11 +4,15 @@ This package is pulling in the [bigbang artifactory chart](https://repo1.dso.mil
 
 ## How to upgrade this package
 
-WIP
+Artifactory requires a license to upgrade.
 
 ## How to test this package on your own cluster
 
-WIP
+1) Have a cluster running that has [UDS-Core](https://github.com/defenseunicorns/uds-core) and you have access to it
+2) Clone this repo to your local machine
+3) Migrate to the cloned repo
+4) Using `uds-cli` run the `dev` task in the repo. The task will build the current configuration in the repo and then deploy it to the cluster
+    - Example command: `uds run dev --set FLAVOR=<your-desired-flavor-here>`
 
 ## Creating Releases
 
