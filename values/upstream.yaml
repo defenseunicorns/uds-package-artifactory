@@ -8,16 +8,16 @@ initContainers:
   image:
     registry: releases-docker.jfrog.io
     repository: ubi9/ubi-minimal
-    tag: 9.5.1745855087
+    tag: 9.6.1747218906
 artifactory:
   name: artifactory
   image:
     registry: releases-docker.jfrog.io
     repository: jfrog/artifactory-pro
-    tag: 7.111.4
+    tag: 7.111.9
 router:
   name: router
   image:
     registry: releases-docker.jfrog.io
     repository: jfrog/router
-    tag: 7.165.2
+    tag: 7.165.4
