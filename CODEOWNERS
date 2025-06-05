@@ -1,6 +1,4 @@
-/* @defenseunicorns/uds-package-maintainers @Michael-Kruggel @mkborland
+* @defenseunicorns/uds-package-maintainers
 
-/CODEOWNERS @defenseunicorns/uds-package-maintainers
-
-# NOTE: No E to catch LICENSE and LICENSING
+/CODEOWNERS @jeff-mccoy @daveworth 
 /LICENS* @jeff-mccoy @austenbryan
