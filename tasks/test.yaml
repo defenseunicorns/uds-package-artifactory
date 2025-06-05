@@ -28,7 +28,7 @@ tasks:
       - task: test:ui
 
   - name: ui
-    description: GitLab UI Checks
+    description: Artifactory UI Checks
     actions:
       - dir: tests
         cmd: |

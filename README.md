@@ -11,9 +11,6 @@ This package is designed to be deployed on [UDS Core](https://github.com/defense
 The Artifactory Package expects to be deployed on top of [UDS Core](https://github.com/defenseunicorns/uds-core) with the dependencies listed below being configured prior to deployment.
 
 > [!IMPORTANT]
-> **NOTE #1:** This package has been migrated to use Istio Ambient. Minimum version of uds-core required is `0.40.x`
-
-> [!IMPORTANT]
 > **NOTE #2**: Many features are locked behind a license. Some notable features include:
 > - In place upgrades
 > - Single sign-on capabilities
