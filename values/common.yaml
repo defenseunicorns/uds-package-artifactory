@@ -24,3 +24,8 @@ nginx:
   enabled: false
 postgresql:
   enabled: false
+
+global:
+  license:
+    secret: artifactory-license
+    dataKey: license
