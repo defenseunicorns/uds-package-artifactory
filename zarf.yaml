@@ -45,4 +45,4 @@ components:
     images:
       - releases-docker.jfrog.io/jfrog/artifactory-pro:7.111.9
       - releases-docker.jfrog.io/jfrog/router:7.165.4
-      - releases-docker.jfrog.io/ubi9/ubi-minimal:9.6.1747218906
+      - releases-docker.jfrog.io/ubi9/ubi-minimal:9.6.1749489516
