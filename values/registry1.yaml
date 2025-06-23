@@ -14,7 +14,7 @@ artifactory:
   image:
     registry: registry1.dso.mil
     repository: ironbank/jfrog/artifactory/artifactory
-    tag: 7.111.9
+    tag: 7.111.10
 router:
   name: router
   image:
