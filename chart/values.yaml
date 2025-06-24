@@ -38,6 +38,8 @@ postgres:
   namespace: postgres
   port: 5432
 
+license: ""
+
 # customNetworkPolicies:
 #    # Notice no `remoteGenerated` field here on custom internal rule
 #   - direction: Ingress
