@@ -26,6 +26,13 @@ spec:
             - "{{ . }}"
           {{- end }}
         {{- end }}
+      secretName: artifactory-keycloak-client
+      secretTemplate:
+        artifactory_client_id: "clientField(clientId)"
+        artifactory_client_secret: "clientField(secret)"
+        keycloak_auth_url: "https://sso.{{ .Values.domain }}/realms/uds/protocol/openid-connect/auth"
+        keycloak_token_url: "https://sso.{{ .Values.domain }}/realms/uds/protocol/openid-connect/token"
+        keycloak_api_url: "https://sso.{{ .Values.domain }}/realms/uds/protocol/openid-connect/userinfo"
   {{- end }}
   network:
     serviceMesh:
