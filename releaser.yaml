@@ -7,4 +7,4 @@ flavors:
     version: 7.117.7-uds.0
   - name: upstream
     # renovate-uds: datasource=docker depName=releases-docker.jfrog.io/jfrog/artifactory-pro
-    version: 7.117.7-uds.0
+    version: 7.117.10-uds.0
