@@ -19,7 +19,7 @@ components:
       - name: artifactory
         namespace: artifactory
         url: https://charts.jfrog.io
-        version: 107.117.17
+        version: 107.117.18
         repoName: artifactory
         releaseName: artifactory
         valuesFiles:
