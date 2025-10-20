@@ -4,7 +4,7 @@
 flavors:
   - name: registry1
     # renovate-uds: datasource=docker depName=registry1.dso.mil/ironbank/jfrog/artifactory/artifactory
-    version: 7.117.17-uds.0
+    version: 7.117.18-uds.0
   - name: upstream
     # renovate-uds: datasource=docker depName=releases-docker.jfrog.io/jfrog/artifactory-pro
-    version: 7.117.17-uds.0
+    version: 7.117.18-uds.0
