@@ -8,13 +8,13 @@ initContainers:
   image:
     registry: registry1.dso.mil
     repository: ironbank/redhat/ubi/ubi9-minimal
-    tag: 9.6
+    tag: 9.7
 artifactory:
   name: artifactory
   image:
     registry: registry1.dso.mil
     repository: ironbank/jfrog/artifactory/artifactory
-    tag: 7.117.18
+    tag: 7.125.4
 router:
   name: router
   image:
